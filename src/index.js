@@ -33,7 +33,7 @@ let folderContainer = {
 //Default folder creation
 let defaulFolder = new Folder('carpeta');
 folderContainer.addFolder(defaulFolder);
-let defaulFolder2 = new Folder('carpeta2');
+let defaulFolder2 = new Folder('carpeta1');
 folderContainer.addFolder(defaulFolder2);
 
 
@@ -43,5 +43,5 @@ defaulFolder.addItem(itemtest);
 defaulFolder2.addItem(itemtest2);
 
 
-console.log(folderContainer.searchFolder('carpeta2'));
+console.log(folderContainer.searchFolder('carpeta1'));
 console.log(folderContainer.currentIndex)
