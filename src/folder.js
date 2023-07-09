@@ -18,4 +18,15 @@ export class Folder{
                 this.items.splice(index, 1); // 2nd parameter means remove one item only
         }
     }
+
+    renderFolder(){
+        let folderCard = document.createElement('div');
+        folderCard.classList.add('folderCard');
+
+        let folderName = document.createElement('h1');
+        folderName.textContent = this.name;
+        folderCard.appendChild(folderName);
+
+        return folderCard;
+    }
 }

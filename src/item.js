@@ -39,6 +39,5 @@ export class Item{
         itemCard.appendChild(itemDueDate);
 
         return itemCard;
-
     }
 }

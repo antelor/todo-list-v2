@@ -27,6 +27,28 @@ let folderContainer = {
         
         this.changeIndex(folderIndex);
         return foundFolder;
+    },
+    renderFolders: function(){
+        let folderList = document.createElement('div');
+        folderList.classList.add('folderList');
+
+        //for each folder in the folderlist
+        this.folders.forEach((folder) => {
+            folderList.appendChild(folder.renderFolder());
+        })
+
+        return folderList;
+    },
+    renderActiveFolder: function(){
+        let itemList = document.createElement('div');
+        itemList.classList.add('itemList');
+
+        //for each item in the current active folder
+        this.folders[this.currentIndex].items.forEach((item) => {
+            itemList.appendChild(item.renderItem());
+        })
+
+        return itemList;
     }
 };
 
@@ -45,3 +67,7 @@ defaulFolder2.addItem(itemtest2);
 
 console.log(folderContainer.searchFolder('carpeta1'));
 console.log(folderContainer.currentIndex)
+
+
+document.querySelector('.folderMenu').appendChild(folderContainer.renderFolders());
+document.querySelector('.itemDisplay').appendChild(folderContainer.renderActiveFolder());
