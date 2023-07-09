@@ -1,5 +1,9 @@
-import { Item } from "./item";
-import { Folder } from "./folder";
+import { Item } from "./modules/item";
+import { Folder } from "./modules/folder";
+import './styles/main.scss'; 
+import './styles/folder.scss';
+import './styles/item.scss';
+
 
 //Container of all folders
 let folderContainer = {
