@@ -85,7 +85,19 @@ let folderContainer = {
 
         //for each item in the current active folder
         this.folders[this.currentIndex].items.forEach((item) => {
-            itemList.appendChild(item.renderItem());
+            let itemDiv = item.renderItem();
+            let delButton = document.createElement('button');
+            delButton.textContent = 'D';
+            
+            delButton.addEventListener('click', (e)=>{
+                this.folders[this.currentIndex].deleteItem(item);
+                console.log('a');
+                document.querySelector('.itemDisplay').innerHTML = "";
+                document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
+            });
+            
+            itemDiv.appendChild(delButton);
+            itemList.appendChild(itemDiv);
         })
 
         return itemList;

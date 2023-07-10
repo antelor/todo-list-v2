@@ -19,6 +19,7 @@ export class Folder{
         }
     }
 
+    //render folder menu
     renderFolder(){
         let folderCard = document.createElement('div');
         folderCard.classList.add('folderContent');
