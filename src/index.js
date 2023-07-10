@@ -38,7 +38,21 @@ let folderContainer = {
 
         //for each folder in the folderlist
         this.folders.forEach((folder) => {
-            folderList.appendChild(folder.renderFolder());
+            let newFolderDiv = folder.renderFolder();
+            folderList.appendChild(newFolderDiv);
+            
+            newFolderDiv.addEventListener('click', (e) => {
+                console.log(document.querySelector('.active') );
+                if( document.querySelector('.active') ){
+                    document.querySelector('.active').classList.remove('active');
+                }
+
+                this.currentIndex = this.folders.indexOf(folder);
+                document.querySelector('.itemDisplay').innerHTML = "";
+                document.querySelector('.itemDisplay').appendChild(this.renderActiveFolder());
+
+                newFolderDiv.classList.add('active');
+            });
         })
 
         return folderList;
@@ -63,14 +77,12 @@ let defaulFolder2 = new Folder('carpeta1');
 folderContainer.addFolder(defaulFolder2);
 
 
-let itemtest = new Item('a','a','a','a');
-let itemtest2 = new Item('b','b','b','b');
+let itemtest = new Item('supermercado','banana papa pera','11-07-23','1');
+let itemtest2 = new Item('supermercado2','banana papa','11-07-23','1');
+let itemtest3 = new Item('supermercado2','banana papa','11-07-23','1');
 defaulFolder.addItem(itemtest);
 defaulFolder2.addItem(itemtest2);
-
-
-console.log(folderContainer.searchFolder('carpeta1'));
-console.log(folderContainer.currentIndex)
+defaulFolder2.addItem(itemtest3);
 
 
 document.querySelector('.folderMenu').appendChild(folderContainer.renderFolders());
