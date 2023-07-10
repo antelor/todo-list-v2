@@ -7,7 +7,7 @@ import './styles/item.scss';
 
 //Container of all folders
 let folderContainer = {
-    currentIndex: -1,
+    currentIndex: 0,
     folders: [],
     addFolder: function(folder){
         this.folders.push(folder);
@@ -15,9 +15,6 @@ let folderContainer = {
     },
     removeFolder: function(folderName){
         this.folders = this.folders.filter((folder) => folder.name !== folderName);
-    },
-    changeIndex: function(newIndex){
-        this.currentIndex = newIndex;
     },
     getCurrentFolder: function(){
         return this.folders[this.currentIndex];
@@ -39,10 +36,15 @@ let folderContainer = {
         folderList.classList.add('folderList');
 
         //for each folder in the folderlist create the div and add the active folder click listener
-        this.folders.forEach((folder) => {
+        this.folders.forEach((folder, index) => {
             //folderDiv -> 2 children: folderContent and delButton
             let folderDiv = document.createElement('div');
             let folderContent = folder.renderFolder();
+            if(index===0) {
+                folderDiv.classList.add('active');
+                document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
+                this.renderForm();
+            };
             
             folderDiv.classList.add('folderDiv');
             folderContent.classList.add('folderContent');
@@ -55,14 +57,14 @@ let folderContainer = {
                 if( document.querySelector('.active') ){
                     document.querySelector('.active').classList.remove('active');
                 }
-
                 this.currentIndex = this.folders.indexOf(folder);
                 document.querySelector('.itemDisplay').innerHTML = "";
                 document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
-
+                this.renderForm();
+                
                 folderDiv.classList.add('active');
             });
-
+            
             //delete button logic and listener
             let delButton = document.createElement('button');
             delButton.classList.add('delFolderButton');
@@ -83,7 +85,7 @@ let folderContainer = {
         let itemList = document.createElement('div');
         itemList.classList.add('itemList');
 
-        //for each item in the current active folder
+        //for each item in the current active folder show render it
         this.folders[this.currentIndex].items.forEach((item) => {
             let itemDiv = item.renderItem();
             let delButton = document.createElement('button');
@@ -91,9 +93,9 @@ let folderContainer = {
             
             delButton.addEventListener('click', (e)=>{
                 this.folders[this.currentIndex].deleteItem(item);
-                console.log('a');
                 document.querySelector('.itemDisplay').innerHTML = "";
                 document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
+                this.renderForm();
             });
             
             itemDiv.appendChild(delButton);
@@ -101,22 +103,62 @@ let folderContainer = {
         })
 
         return itemList;
+    },
+    renderForm: function(){
+        let formDiv = document.createElement('div');
+        formDiv.innerHTML=`
+        <form class="itemForm">
+            <input type="text" name="itemName" id="itemName" value="New item name">
+            <input type="date" name="itemDate" id="itemDate" value="1111-11-11">
+            <select name="itemPriority" id="itemPriority" aria-placeholder="Priority">
+                <option value="urgPrio">High</option>
+                <option value="norPrio">Normal</option>
+                <option value="lowPrio">Low</option>
+            </select>
+            <input type="desc" name="itemDesc" id="itemDesc" value="a">
+            <button type="button" id="addItemButton">+</button>
+        </form>
+        `;
+        document.querySelector('.itemList').appendChild(formDiv);
+        document.getElementById('addItemButton').addEventListener('click', (e) => this.createItem());
+
+    },
+    createItem: function(){
+        console.log('a');
+        let itemName = document.getElementById('itemName').value;
+        let itemDate = document.getElementById('itemDate').value;
+        let itemDesc = document.getElementById('itemDesc').value;
+        let itemPriority = document.getElementById('itemPriority').value;
+
+        let newItem = new Item(itemName, itemDesc, itemDate, itemPriority);
+
+        this.folders[this.currentIndex].addItem(newItem);
+
+        console.log(document.querySelector('.itemDisplay'));
+        document.querySelector('.itemDisplay').innerHTML="";
+        document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
+        this.renderForm();
     }
 };
 
 //Default folder creation
 let defaulFolder = new Folder('carpeta');
 folderContainer.addFolder(defaulFolder);
-let defaulFolder2 = new Folder('carpeta1');
+
+let defaulFolder2 = new Folder('carpeta2');
 folderContainer.addFolder(defaulFolder2);
 
+let defaulFolder3 = new Folder('carpeta3');
+folderContainer.addFolder(defaulFolder3);
 
 let itemtest = new Item('supermercado','banana papa pera','11-07-23','1');
-let itemtest2 = new Item('supermercado2','banana papa','11-07-23','1');
+let itemtest2 = new Item('asdasd','banana papa','11-07-23','1');
 let itemtest3 = new Item('supermercado2','banana papa','11-07-23','1');
-defaulFolder.addItem(itemtest);
+let itemtest4 = new Item('aaaa', 'aaa', '11-07-23', 'aaaa');
 defaulFolder2.addItem(itemtest2);
 defaulFolder2.addItem(itemtest3);
+defaulFolder3.addItem(itemtest4);
+defaulFolder.addItem(itemtest);
 
+folderContainer.currentIndex = 0;
 folderContainer.renderFolders();
-document.querySelector('.itemDisplay').appendChild(folderContainer.renderActiveItems());
