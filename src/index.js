@@ -44,7 +44,8 @@ let folderContainer = {
             let folderDiv = document.createElement('div');
             let folderContent = folder.renderFolder();
             
-            folderDiv.classList.add('folderCard');
+            folderDiv.classList.add('folderDiv');
+            folderContent.classList.add('folderContent');
 
             folderDiv.appendChild(folderContent);
             folderList.appendChild(folderDiv);
