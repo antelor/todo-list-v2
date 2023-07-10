@@ -33,31 +33,52 @@ let folderContainer = {
         return foundFolder;
     },
     renderFolders: function(){
+        document.querySelector('.folderMenu').innerHTML = "";
+
         let folderList = document.createElement('div');
         folderList.classList.add('folderList');
 
-        //for each folder in the folderlist
+        //for each folder in the folderlist create the div and add the active folder click listener
         this.folders.forEach((folder) => {
-            let newFolderDiv = folder.renderFolder();
-            folderList.appendChild(newFolderDiv);
+            //folderDiv -> 2 children: folderContent and delButton
+            let folderDiv = document.createElement('div');
+            let folderContent = folder.renderFolder();
             
-            newFolderDiv.addEventListener('click', (e) => {
-                console.log(document.querySelector('.active') );
+            folderDiv.classList.add('folderCard');
+
+            folderDiv.appendChild(folderContent);
+            folderList.appendChild(folderDiv);
+
+            //active selector event listener
+            folderContent.addEventListener('click', (e) => {
                 if( document.querySelector('.active') ){
                     document.querySelector('.active').classList.remove('active');
                 }
 
                 this.currentIndex = this.folders.indexOf(folder);
                 document.querySelector('.itemDisplay').innerHTML = "";
-                document.querySelector('.itemDisplay').appendChild(this.renderActiveFolder());
+                document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
 
-                newFolderDiv.classList.add('active');
+                folderDiv.classList.add('active');
             });
+
+            //delete button logic and listener
+            let delButton = document.createElement('button');
+            delButton.classList.add('delFolderButton');
+            delButton.textContent='D';
+            folderDiv.appendChild(delButton);
+
+            delButton.addEventListener('click', (e)=>{
+                console.log(folder.name);
+                this.removeFolder(folder.name);
+                this.renderFolders();
+                document.querySelector('.itemDisplay').innerHTML="";
+            })
         })
 
-        return folderList;
+        document.querySelector('.folderMenu').appendChild(folderList);
     },
-    renderActiveFolder: function(){
+    renderActiveItems: function(){
         let itemList = document.createElement('div');
         itemList.classList.add('itemList');
 
@@ -84,6 +105,5 @@ defaulFolder.addItem(itemtest);
 defaulFolder2.addItem(itemtest2);
 defaulFolder2.addItem(itemtest3);
 
-
-document.querySelector('.folderMenu').appendChild(folderContainer.renderFolders());
-document.querySelector('.itemDisplay').appendChild(folderContainer.renderActiveFolder());
+folderContainer.renderFolders();
+document.querySelector('.itemDisplay').appendChild(folderContainer.renderActiveItems());

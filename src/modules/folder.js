@@ -21,7 +21,7 @@ export class Folder{
 
     renderFolder(){
         let folderCard = document.createElement('div');
-        folderCard.classList.add('folderCard');
+        folderCard.classList.add('folderContent');
 
         let folderName = document.createElement('h1');
         folderName.textContent = this.name;
