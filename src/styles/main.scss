@@ -91,10 +91,22 @@ section {
 		.folderCard{
 			border: 1px solid rgb(255, 0, 234);
 			height: 20%;
+			display: flex;
+			flex-direction: column;
 		}
 
 		.active {
 			background-color: rgb(77, 0, 70);
+		}
+
+		.folderDiv {
+			background-color: rgb(0, 255, 0);
+		}
+
+		.delButtonFolder {
+
+			background-color: rgb(255, 0, 0);
+
 		}
 	}
 	
