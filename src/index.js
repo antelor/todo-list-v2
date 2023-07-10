@@ -40,11 +40,6 @@ let folderContainer = {
             //folderDiv -> 2 children: folderContent and delButton
             let folderDiv = document.createElement('div');
             let folderContent = folder.renderFolder();
-            if(index===0) {
-                folderDiv.classList.add('active');
-                document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
-                this.renderForm();
-            };
             
             folderDiv.classList.add('folderDiv');
             folderContent.classList.add('folderContent');
@@ -80,6 +75,26 @@ let folderContainer = {
         })
 
         document.querySelector('.folderMenu').appendChild(folderList);
+
+        let addFolderDiv = document.createElement('div')
+        let addFolderInput = document.createElement('input');
+        addFolderInput.setAttribute('id', 'folderInput');
+
+        let addFolderBtn = document.createElement('button');
+        addFolderBtn.textContent='+';
+        addFolderDiv.appendChild(addFolderInput);
+        addFolderDiv.appendChild(addFolderBtn);
+        document.querySelector('.folderMenu').appendChild(addFolderDiv);
+
+        
+        addFolderBtn.addEventListener('click', () => {
+            let newFolder = new Folder( document.getElementById('folderInput').value );
+            this.addFolder(newFolder);
+            this.renderFolders();
+            document.querySelector('.itemDisplay').innerHTML = "";
+            document.querySelector('.itemDisplay').appendChild(this.renderActiveItems());
+    });
+
     },
     renderActiveItems: function(){
         let itemList = document.createElement('div');
