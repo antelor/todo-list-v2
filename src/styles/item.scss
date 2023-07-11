@@ -1,0 +1,97 @@
+$green: #188C77;
+$yellow: #F2AE2E;
+$purple: #7E3164;
+$red: #BF2517;
+$black: #262626;
+
+
+
+.itemDisplay {
+    
+    grid-column: 2/3;
+    width: 100%;
+    background-color: #161616;
+
+    .itemList{
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+
+        .itemCard{
+            display: flex;
+            flex-direction:column;
+            flex-wrap: wrap;
+            align-items: center;
+
+            height: 250px;
+            width: 250px;
+            border-radius: 5px;
+            margin: 1em;
+            padding: 1em 1em;
+
+            background-color: #7E3164;
+            transition: ease-in 250ms;
+        
+            h1{
+                font-size: 2.5em;
+            }
+            
+            p2 {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+    
+
+
+        }
+
+        .urgPrio{
+            background-color:$red;
+        }
+        .midPrio{
+            background-color:$yellow;
+        }
+        .lowPrio{
+            background-color:$green;
+        }
+
+
+        .formDiv{
+            transition: opacity 1s ease-out;
+
+            h1{
+                font-size: 15em;
+                position: absolute;
+                opacity: 1;
+                transition: visibility 0s, opacity 0.3s linear;
+            }
+            
+            .itemForm{
+                transition: visibility 0s, opacity 0.3s linear;
+                opacity: 0;
+                
+            }
+
+        }
+        .formDiv:hover{
+            .itemForm{
+                opacity: 1;
+                transition: visibility 0s, opacity 0.3s linear;
+                
+            }
+            h1 {
+                transition: visibility 0s, opacity 0.3s linear;
+                opacity: 0;
+            }
+        }
+        .itemCard:hover{
+            transform: scale(1.02);
+        }
+    }
+
+    
+
+}

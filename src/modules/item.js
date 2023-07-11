@@ -30,13 +30,13 @@ export class Item{
         itemName.textContent = this.name;
         itemCard.appendChild(itemName);
 
-        let itemDesc = document.createElement('p');
-        itemDesc.textContent = this.desc;
-        itemCard.appendChild(itemDesc);
-
         let itemDueDate = document.createElement('p2');
         itemDueDate.textContent = this.dueDate;
         itemCard.appendChild(itemDueDate);
+
+        let itemDesc = document.createElement('p');
+        itemDesc.textContent = this.desc;
+        itemCard.appendChild(itemDesc);
 
         return itemCard;
     }

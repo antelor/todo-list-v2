@@ -103,6 +103,7 @@ let folderContainer = {
         //for each item in the current active folder show render it
         this.folders[this.currentIndex].items.forEach((item) => {
             let itemDiv = item.renderItem();
+            itemDiv.classList.add(item.priority)
             let delButton = document.createElement('button');
             delButton.textContent = 'D';
             
@@ -121,13 +122,16 @@ let folderContainer = {
     },
     renderForm: function(){
         let formDiv = document.createElement('div');
+        formDiv.classList.add('formDiv')
+        formDiv.classList.add('itemCard')
         formDiv.innerHTML=`
+        <h1> + </h1>
         <form class="itemForm">
             <input type="text" name="itemName" id="itemName" value="New item name">
             <input type="date" name="itemDate" id="itemDate" value="1111-11-11">
             <select name="itemPriority" id="itemPriority" aria-placeholder="Priority">
                 <option value="urgPrio">High</option>
-                <option value="norPrio">Normal</option>
+                <option value="midPrio">Normal</option>
                 <option value="lowPrio">Low</option>
             </select>
             <input type="desc" name="itemDesc" id="itemDesc" value="a">
@@ -139,7 +143,6 @@ let folderContainer = {
 
     },
     createItem: function(){
-        console.log('a');
         let itemName = document.getElementById('itemName').value;
         let itemDate = document.getElementById('itemDate').value;
         let itemDesc = document.getElementById('itemDesc').value;
@@ -166,10 +169,10 @@ folderContainer.addFolder(defaulFolder2);
 let defaulFolder3 = new Folder('carpeta3');
 folderContainer.addFolder(defaulFolder3);
 
-let itemtest = new Item('supermercado','banana papa pera','11-07-23','1');
-let itemtest2 = new Item('asdasd','banana papa','11-07-23','1');
-let itemtest3 = new Item('supermercado2','banana papa','11-07-23','1');
-let itemtest4 = new Item('aaaa', 'aaa', '11-07-23', 'aaaa');
+let itemtest = new Item('supermercado','banana papa pera','11-07-23','urgPrio');
+let itemtest2 = new Item('asdasd','banana papa','11-07-23','midPrio');
+let itemtest3 = new Item('supermercado2','banana papa','11-07-23','lowPrio');
+let itemtest4 = new Item('aaaa', 'aaa', '11-07-23', 'midPrio');
 defaulFolder2.addItem(itemtest2);
 defaulFolder2.addItem(itemtest3);
 defaulFolder3.addItem(itemtest4);

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -45,23 +47,25 @@ table {
 }
 
 
-
+/* color variables: */
+$green: #188C77;
+$yellow: #F2AE2E;
+$purple: #7E3164;
+$red: #BF2517;
+$black: #262626;
 
 
 
 body {
     display: grid;
     grid-template: 12% 85% 3% / 1fr 5fr 1fr;
-
-    background-color: rgb(19, 18, 20);
-    color: white;
-
 	height: 100vh;
+
+    background-color: rgb(70, 70, 70);
+    color: #ffffff;
+
 }
 
-section {
-    border: 1px solid rgb(255, 0, 0);
-}
 
 .hidden {
     display: none;
@@ -72,6 +76,13 @@ section {
 .header {
     grid-column: 1/4;
     grid-row: 1/2;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	font-size: 3em;
+	font-family: 'Anton', sans-serif;
 }
 
 
@@ -81,58 +92,7 @@ section {
     grid-row: 2/3;
 	display: grid;
 	grid-template: 1fr / 1fr 5fr;
-
 	background-color: rgb(37, 37, 37);
-
-	.folderMenu {
-		grid-column: 1/2;
-		background-color: rgb(26, 46, 26);
-
-		.folderDiv{
-			border: 1px solid rgb(255, 0, 234);
-			height: 20%;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-		}
-
-		.folderContent{
-			width: 100%;
-		}
-
-		.active {
-			background-color: rgb(77, 0, 70);
-		}		
-
-		.delButtonFolder {
-			background-color: rgb(255, 0, 0);
-		}
-	}
-	
-	.itemDisplay {
-		grid-column: 2/3;
-		background-color: rgb(0, 44, 44);
-
-		.itemCard{
-			border: 1px solid rgb(0, 255, 13);
-			height: 20%;
-			width: 20%;
-
-
-			h1{
-				font-size: 2em;
-			}
-
-			p {
-				font-size: 1em;
-			}
-
-			p2 {
-				font-size: 0.7em;
-			}
-		}
-
-	}
 }
 
 

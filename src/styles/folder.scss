@@ -1,0 +1,33 @@
+$green: #188C77;
+$yellow: #F2AE2E;
+$purple: #7E3164;
+$red: #BF2517;
+$black: #262626;
+
+
+
+.folderMenu {
+    grid-column: 1/2;
+    background-color: #262626;
+
+    .folderDiv{
+        border: 1px solid rgb(0, 0, 0);
+        background-color: #666666;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .folderContent{
+        width: 100%;
+    }
+
+    .active {
+        background-color: rgb(77, 0, 70);
+    }		
+
+    .delButtonFolder {
+        background-color: rgb(255, 0, 0);
+    }
+}
