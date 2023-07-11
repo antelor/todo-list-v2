@@ -65,8 +65,8 @@ $black: #262626;
             h1{
                 font-size: 15em;
                 position: absolute;
-                opacity: 1;
-                transition: visibility 0s, opacity 0.3s linear;
+                user-select: none;
+                display: block;
             }
             
             .itemForm{
@@ -83,8 +83,7 @@ $black: #262626;
                 
             }
             h1 {
-                transition: visibility 0s, opacity 0.3s linear;
-                opacity: 0;
+                display: none;
             }
         }
         .itemCard:hover{

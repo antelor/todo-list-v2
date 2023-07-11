@@ -125,7 +125,6 @@ let folderContainer = {
         formDiv.classList.add('formDiv')
         formDiv.classList.add('itemCard')
         formDiv.innerHTML=`
-        <h1> + </h1>
         <form class="itemForm">
             <input type="text" name="itemName" id="itemName" value="New item name">
             <input type="date" name="itemDate" id="itemDate" value="1111-11-11">
@@ -137,6 +136,7 @@ let folderContainer = {
             <input type="desc" name="itemDesc" id="itemDesc" value="a">
             <button type="button" id="addItemButton">+</button>
         </form>
+        <h1> + </h1>
         `;
         document.querySelector('.itemList').appendChild(formDiv);
         document.getElementById('addItemButton').addEventListener('click', (e) => this.createItem());
