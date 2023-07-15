@@ -1,124 +1,191 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rubik&display=swap');
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Rubik&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
 
 /* color variables: */
-$green: #188C77;
-$yellow: #F2AE2E;
-$purple: #7E3164;
-$red: #BF2517;
+$green: #188c77;
+$yellow: #f2ae2e;
+$purple: #7e3164;
+$red: #bf2517;
 $black: #262626;
 
-
-
 body {
-    display: grid;
-    grid-template: 12% 85% 3% / 1fr 5fr 1fr;
-	height: 100vh;
+  display: grid;
+  grid-template: 12% 85% 3% / 1fr 5fr 1fr;
+  height: 100vh;
 
-    background-color: rgb(70, 70, 70);
-    color: #ffffff;
-
+  background-color: rgb(70, 70, 70);
+  color: #ffffff;
 }
-
 
 .hidden {
-    display: none;
+  display: none;
 }
-
-
 
 .header {
-    grid-column: 1/4;
-    grid-row: 1/2;
-	display: flex;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  display: flex;
 
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 
-	font-size: 3em;
-	font-family: 'Anton', sans-serif;
+  font-size: 3em;
+  font-family: "Anton", sans-serif;
 }
-
 
 /* main related styles */
 .main {
-	grid-column: 1/4;
-    grid-row: 2/3;
-	display: grid;
-	grid-template: 1fr / 1fr 7fr;
-	background-color: rgb(37, 37, 37);
+  grid-column: 1/4;
+  grid-row: 2/3;
+  display: grid;
+  grid-template: 1fr / 1fr 7fr;
+  background-color: rgb(37, 37, 37);
 }
-
-
 
 .footer {
-	display: flex;
-	grid-column: 1/4;
-	grid-row: 3/4;
+  display: flex;
+  grid-column: 1/4;
+  grid-row: 3/4;
 
-	justify-content: center;
-	align-items: center;
-	p{
-		text-align: center;
-		font-size: 1.2em;
-		font-family: 'Rubik', sans-serif;
-		
-	}
-	a{
-		transition: ease 100ms;
-		text-decoration: none;
-		color:#F2AE2E;
-		text-shadow: 1px 1px 2px black;
-	}
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    font-size: 1.2em;
+    font-family: "Rubik", sans-serif;
+  }
+  a {
+    transition: ease 100ms;
+    text-decoration: none;
+    color: #f2ae2e;
+    text-shadow: 1px 1px 2px black;
+  }
 
-	a:hover{
-		color: #BF2517;
-	}
+  a:hover {
+    color: #bf2517;
+  }
 }
-
-

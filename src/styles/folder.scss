@@ -1,90 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Rubik&display=swap");
 
-$green: #188C77;
-$yellow: #F2AE2E;
-$purple: #7E3164;
-$red: #BF2517;
+$green: #188c77;
+$yellow: #f2ae2e;
+$purple: #7e3164;
+$red: #bf2517;
 $black: #262626;
 
-
-
 .folderMenu {
-    grid-column: 1/2;
-    background-color: #262626;
-    overflow-y: auto;
-    overflow-x: hidden;
+  grid-column: 1/2;
+  background-color: #262626;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: fit-content;
+  width: auto;
+
+  .folderDiv {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    background-color: #666666;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5px;
+    align-items: center;
+    margin: 3px;
+    margin-top: 5px;
+  }
+
+  .folderContent {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+
+    h1 {
+      height: 100%;
+      font-family: "Rubik", sans-serif;
+      user-select: none;
+      text-transform: uppercase;
+    }
+  }
+
+  .folderContent:hover {
+    cursor: pointer;
+  }
+
+  .active {
+    transition: ease 100ms;
+    background-color: rgb(77, 0, 70);
+    transform: scale(1.05);
+  }
+
+  .delFolderButton {
+    display: block;
     width: fit-content;
-    width: auto;
+    height: 32px;
+    background-color: #ffffff;
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 3px;
+  }
 
-    .folderDiv{
-        border: 1px solid rgb(0, 0, 0);
-        border-radius: 3px;
-        background-color: #666666;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding-left: 5px;
-        align-items: center;
-        margin: 3px;
-        margin-top: 5px;
-    }
+  button {
+    display: block;
+    width: 100%;
+    height: 32px;
+  }
 
+  input {
+    margin-bottom: 3px;
+    margin-top: 15px;
+    width: 100%;
+  }
 
-    .folderContent{
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        
-        h1 {
-            height: 100%;
-            font-family: 'Rubik', sans-serif;
-            user-select: none;
-            text-transform: uppercase
-        }
-    }
+  .addFolderBtn {
+    font-size: 2em;
+    align-content: center;
+    height: fit-content;
+  }
 
-    .folderContent:hover{
-        cursor: pointer;
-    }
-
-    .active {
-        transition: ease 100ms;
-        background-color: rgb(77, 0, 70);
-        transform: scale(1.05);
-    }		
-
-    .delFolderButton {
-        display: block;
-        width: fit-content;
-        height: 32px;
-        background-color: #ffffff;
-        text-shadow: 1px 1px 2px black;
-        cursor: pointer;
-        border-radius: 10px;
-        margin: 3px;
-    }
-
-    button {
-        display: block;
-        width: 100%;
-        height: 32px     
-    }
-
-    input {
-        margin-bottom: 3px;
-        margin-top: 15px;
-        width: 100%;
-    }
-
-    .addFolderBtn {
-        font-size: 2em;
-        align-content: center;
-        height: fit-content;
-    }
-
-    .folderDiv:hover{
-        transition: ease-in-out 100ms;
-        transform: translate(2px);
-    }
+  .folderDiv:hover {
+    transition: ease-in-out 100ms;
+    transform: translate(2px);
+  }
 }
