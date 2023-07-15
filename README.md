@@ -12,3 +12,4 @@ You can test it at: [WIP]()
 #### Known Issues:   
 - Need to add permanent Storage
 - Must click on the text to set a folder to active
+- No form style for the Items
