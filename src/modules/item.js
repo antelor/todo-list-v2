@@ -1,43 +1,43 @@
-export class Item{
-    constructor(name, desc, dueDate, priority){
-        this.name = name;
-        this.desc = desc;
-        this.dueDate = dueDate;
-        this.priority = priority;
-    };
+export class Item {
+  constructor (name, desc, dueDate, priority) {
+    this.name = name
+    this.desc = desc
+    this.dueDate = dueDate
+    this.priority = priority
+  };
 
-    setName(newName){
-        this.name = newName;
-    }
+  setName (newName) {
+    this.name = newName
+  }
 
-    setDesc(newDesc){
-        this.desc = newDesc;
-    }
+  setDesc (newDesc) {
+    this.desc = newDesc
+  }
 
-    setDueDate(newDueDate){
-        this.dueDate = newDueDate;
-    }
+  setDueDate (newDueDate) {
+    this.dueDate = newDueDate
+  }
 
-    setPriority(newPriority){
-        this.priority = newPriority;
-    }
+  setPriority (newPriority) {
+    this.priority = newPriority
+  }
 
-    renderItem(){
-        let itemCard = document.createElement('div');
-        itemCard.classList.add('itemCard');
+  renderItem () {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('itemCard')
 
-        let itemName = document.createElement('h1');
-        itemName.textContent = this.name;
-        itemCard.appendChild(itemName);
+    const itemName = document.createElement('h1')
+    itemName.textContent = this.name
+    itemCard.appendChild(itemName)
 
-        let itemDueDate = document.createElement('p2');
-        itemDueDate.textContent = this.dueDate;
-        itemCard.appendChild(itemDueDate);
+    const itemDueDate = document.createElement('p2')
+    itemDueDate.textContent = this.dueDate
+    itemCard.appendChild(itemDueDate)
 
-        let itemDesc = document.createElement('p');
-        itemDesc.textContent = this.desc;
-        itemCard.appendChild(itemDesc);
+    const itemDesc = document.createElement('p')
+    itemDesc.textContent = this.desc
+    itemCard.appendChild(itemDesc)
 
-        return itemCard;
-    }
+    return itemCard
+  }
 }
