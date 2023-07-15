@@ -1,10 +1,10 @@
-const path = require("path");
+const path = require('path')
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -12,19 +12,19 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-      },
-    ],
+        type: 'asset/resource'
+      }
+    ]
   },
 
-  mode: "development",
-};
+  mode: 'development'
+}

@@ -30,12 +30,26 @@ $black: #262626;
       background-color: #7e3164;
       transition: ease-in 250ms;
 
+      button{
+        background-color: white;
+        font-size: 2em;
+        text-shadow: 1px 1px 2px rgb(54, 54, 54);
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px rgb(90, 90, 90);
+      }
+
+      .delButtonDiv{
+        margin-top: auto;
+        justify-self: end;
+      }
+
       h1 {
         font-size: 2.5em;
       }
 
       p2 {
         font-size: 1em;
+        justify-self: flex-start;
       }
 
       p {
@@ -68,6 +82,11 @@ $black: #262626;
           visibility 0s,
           opacity 0.3s linear;
         opacity: 0;
+
+        button{
+          margin: auto;
+          font-size: 1em;
+        }
       }
     }
     .formDiv:hover {
