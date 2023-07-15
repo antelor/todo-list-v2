@@ -97,9 +97,28 @@ body {
 
 
 .footer {
-	text-align: center;
+	display: flex;
 	grid-column: 1/4;
 	grid-row: 3/4;
+
+	justify-content: center;
+	align-items: center;
+	p{
+		text-align: center;
+		font-size: 1.2em;
+		font-family: 'Rubik', sans-serif;
+		
+	}
+	a{
+		transition: ease 100ms;
+		text-decoration: none;
+		color:#F2AE2E;
+		text-shadow: 1px 1px 2px black;
+	}
+
+	a:hover{
+		color: #BF2517;
+	}
 }
 
 
