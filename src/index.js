@@ -63,7 +63,7 @@ let folderContainer = {
             //delete button logic and listener
             let delButton = document.createElement('button');
             delButton.classList.add('delFolderButton');
-            delButton.textContent='D';
+            delButton.textContent='🗑️';
             folderDiv.appendChild(delButton);
 
             delButton.addEventListener('click', (e)=>{
@@ -81,6 +81,7 @@ let folderContainer = {
         addFolderInput.setAttribute('id', 'folderInput');
 
         let addFolderBtn = document.createElement('button');
+        addFolderBtn.classList.add('addFolderBtn');
         addFolderBtn.textContent='+';
         addFolderDiv.appendChild(addFolderInput);
         addFolderDiv.appendChild(addFolderBtn);

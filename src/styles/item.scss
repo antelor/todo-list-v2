@@ -11,6 +11,7 @@ $black: #262626;
     grid-column: 2/3;
     width: 100%;
     background-color: #161616;
+    overflow: auto;
 
     .itemList{
         display: flex;
@@ -63,16 +64,15 @@ $black: #262626;
             transition: opacity 1s ease-out;
 
             h1{
-                font-size: 15em;
-                position: absolute;
                 user-select: none;
-                display: block;
+                display: inline;
+                position: inherit;
+                font-size: 7em;
             }
             
             .itemForm{
                 transition: visibility 0s, opacity 0.3s linear;
                 opacity: 0;
-                
             }
 
         }
