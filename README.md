@@ -13,4 +13,3 @@ You can test it at: [WIP]()
 #### Known Issues:
 
 - Need to add permanent Storage
-- No form style for the Items
