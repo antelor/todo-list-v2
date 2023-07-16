@@ -91,16 +91,19 @@ const folderContainer = {
     addFolderDiv.appendChild(addFolderBtn)
     document.querySelector('.folderMenu').appendChild(addFolderDiv)
 
+
     addFolderBtn.addEventListener('click', () => {
-      const newFolder = new Folder(
-        document.getElementById('folderInput').value
-      )
-      this.addFolder(newFolder)
-      this.renderFolders()
-      document.querySelector('.itemDisplay').innerHTML = ''
-      document
-        .querySelector('.itemDisplay')
-        .appendChild(this.renderActiveItems())
+      if (folderFormValidation()) {
+        const newFolder = new Folder(
+          document.getElementById('folderInput').value
+        )
+        this.addFolder(newFolder)
+        this.renderFolders()
+        document.querySelector('.itemDisplay').innerHTML = ''
+        document
+          .querySelector('.itemDisplay')
+          .appendChild(this.renderActiveItems())
+      }
     })
   },
   renderActiveItems: function () {
@@ -178,6 +181,22 @@ const folderContainer = {
   }
 }
 
+//Folder Form Validation
+function folderFormValidation() {
+  const folderName = document.getElementById('folderInput').value
+  const folderNames = folderContainer.folders.map((folder) => folder.name)
+  if (folderNames.includes(folderName)) {
+    alert('Folder name already exists')
+    return false
+  } else if (!folderName) {
+    alert('Folder name cannot be empty')
+    return false
+  } else {
+    return true
+  }
+}
+
+
 // Default folder creation
 const defaulFolder = new Folder('demo folder 1')
 folderContainer.addFolder(defaulFolder)
@@ -217,3 +236,4 @@ defaulFolder.addItem(itemtest)
 
 folderContainer.currentIndex = 0
 folderContainer.renderFolders()
+
