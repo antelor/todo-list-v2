@@ -2,7 +2,7 @@
 
 A To-Do List using Javascript Classes
 
-You can test it at: [WIP]()
+You can test it at: [WIP](https://antelor.github.io/todo-list-v2/)
 
 ---
 
